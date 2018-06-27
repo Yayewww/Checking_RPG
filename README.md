@@ -11,13 +11,13 @@ APP名稱：勇者的每日任務
 >
 >5.所有資料都會存取
 >
->6.我寫的很累
+>6.突然覺得WPF很糞 == 很難用，寫很累
 >
->7.突然覺得WPF很糞 ==
+>7.下面有 Wireframe 跟 實際App的樣子比對
 
 
-Wireframe 圖:
+Wireframe :
 ![image](https://github.com/Yayewww/myDailyRPG/blob/master/myDailyRPG.jpg)
 
-實際圖 :
+Example :
 ![image](https://github.com/Yayewww/Checking_RPG/blob/master/examples.png)
