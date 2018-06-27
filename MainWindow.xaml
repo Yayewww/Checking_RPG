@@ -5,39 +5,70 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:imnoteeaa"
         mc:Ignorable="d"
-        Title="MainWindow" Height="700" Width="425" Closed="Window_Closed" Loaded="Window_Loaded">
+        Title="MainWindow" Height="700" Width="425" Closed="Window_Closed" Loaded="Window_Loaded" WindowStyle="None" ResizeMode="NoResize">
 
 	<Grid>
 		<!--定義格子-->
 		<Grid.RowDefinitions>
-			<RowDefinition Height="100">
+			<RowDefinition Height="70">
 			</RowDefinition>
 			<RowDefinition>
 			</RowDefinition>
-			<RowDefinition  Height="60">
-			</RowDefinition >
-			<RowDefinition  Height="100">
+			<RowDefinition  Height="180">
 			</RowDefinition>
 		</Grid.RowDefinitions>
-		<!--第一層-->
-		<StackPanel>
-			<Border Height="100" Background="Red">
-				<Border.Effect>
-					<BlurEffect Radius="5"></BlurEffect>
-				</Border.Effect>
-				<TextBox VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" Background="Transparent" Foreground="White" FontWeight="Bold" >DO UR FUCKING WORK!!</TextBox>
-			</Border>
-		</StackPanel>
+		<!--第一層425x70-->
+		<Canvas Background="#FFFFF9FD" x:Name="Tops" MouseLeftButtonDown="Tops_MouseLeftButtonDown">
+			<Rectangle Width="140" Height="70" Fill="#FFF8C0DD" x:Name="CloseBtn" MouseLeftButtonDown="CloseBtn_MouseLeftButtonDown"></Rectangle>
+			<Polygon Points="72.5,10 45,60 100,60"  Fill="#FFD8D9EE" StrokeThickness="0" Canvas.Left="140"></Polygon>
+			<Polygon Points="86.25,35 58.75,35 72.5,60"  Fill="PaleVioletRed" StrokeThickness="0" Canvas.Left="140"></Polygon>
+			<Rectangle x:Name="Finish" Canvas.Left="185" Margin="0 10" Width="55" Height="50" Fill="Transparent" MouseLeftButtonDown="Finish_MouseLeftButtonDown"></Rectangle>
+			<Rectangle Canvas.Left="285" Width="140" Height="70" Fill="#FFCFCBF0"></Rectangle>
+			<TextBlock x:Name="Date" FontSize="40" Margin="20 15 0 0" Background="Transparent"  FontFamily="Arial Black" VerticalAlignment="Center">
+				<TextBlock.Effect>
+					<DropShadowEffect Direction="270" Opacity="0.5" ShadowDepth="2"></DropShadowEffect>
+				</TextBlock.Effect>
+			</TextBlock>
+			<TextBlock x:Name="Target" FontSize="22" Margin="292 24 0 0" Background="Transparent" FontFamily="Arial Black" VerticalAlignment="Center">
+				<TextBlock.Effect>
+					<DropShadowEffect Direction="270" Opacity="0.5" ShadowDepth="2"></DropShadowEffect>
+				</TextBlock.Effect>
+			</TextBlock>
+		</Canvas>
 		<!--第二層-->
-		<ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+		<ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Background="WhiteSmoke">
 			<StackPanel Grid.Row="1" x:Name="TaskPanel">
 			</StackPanel>
 		</ScrollViewer>
-		<!--第三層>-->
-		<StackPanel Grid.Row="2">
-			<Button x:Name="AddBtn" Background="DeepPink" Height="60" BorderThickness="0" FontSize="35" FontFamily="Bauhaus 93" Click="AddBtn_Click">+ADD</Button>	
+		<!--第三層425x180-->
+		<StackPanel Grid.Row="2" Orientation="Horizontal" Background="#FF655A5C">
+			<Image Stretch="Uniform" x:Name="img" Width="180" Height="180"></Image>
+			<StackPanel>
+				<Button VerticalAlignment="Top" x:Name="AddBtn" Background="#FF9BBCCB" Height="60" Width="245" BorderThickness="0" FontSize="35" FontFamily="Arial Black" Click="AddBtn_Click">+ADD</Button>
+				<Rectangle Fill="#FFD9D3D1" Height="100" Width="245" ></Rectangle>
+				<Rectangle Fill="White" Height="20" Width="245" ></Rectangle>
+			</StackPanel>
 		</StackPanel>
-		
+		<!--畫布層-->
+		<Canvas Grid.Row="2" Visibility="Visible">
+			<TextBlock x:Name="Load_text" Canvas.Top="80" Canvas.Left="28" FontSize="20" Background="#FFCFCBF0"> Click to Load</TextBlock>
+			<Rectangle Fill="Transparent" Width="180" Height="180" x:Name="Load_img" MouseLeftButtonDown="Load_img_MouseLeftButtonDown"></Rectangle>
+			<TextBox x:Name="myName" Canvas.Left="180" Canvas.Top="60" Height="50" Width="245" BorderThickness="0" FontFamily="Arial Black" Background="Transparent" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">請輸入名字
+				<TextBox.Effect>
+					<DropShadowEffect Direction="270" Opacity="0.5" ShadowDepth="2"  ></DropShadowEffect>
+				</TextBox.Effect>
+			</TextBox>
+			<TextBox x:Name="myTitle"  Canvas.Left="180" Canvas.Top="110" Height="50" Width="245" BorderThickness="0" FontFamily="Arial Black" Background="Transparent" Foreground="Gray" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">小廢物
+				<TextBox.Effect>
+					<DropShadowEffect Direction="270" Opacity="0.5" ShadowDepth="2"  ></DropShadowEffect>
+				</TextBox.Effect>
+			</TextBox>
+			<TextBox x:Name="exp"  Canvas.Left="180" Canvas.Top="160" Height="20" Width="245" Background="Transparent" Foreground="Turquoise" BorderThickness="0" FontFamily="Arial Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">0/0
+				<TextBox.Effect>
+					<DropShadowEffect Direction="270" Opacity="0.5" ShadowDepth="2"  ></DropShadowEffect>
+				</TextBox.Effect>
+			</TextBox>
+		</Canvas>
 	</Grid>
 	
 </Window>

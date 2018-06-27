@@ -20,18 +20,10 @@ namespace imnoteeaa
     /// </summary>
     public partial class TodoItem : UserControl
     {
-        public string ItemName
-        {
-            get
-            {
-                return ItemNameTb.Text;
-            }
-            set
-            {
-                ItemNameTb.Text = value;
-            }
-        }
 
+        public MainWindow w;
+
+        //打勾狀態
         public bool IsChecked
         {
             set
@@ -64,11 +56,24 @@ namespace imnoteeaa
             if (CheckMark.Visibility == Visibility)
             {
                 CheckMark.Visibility = Visibility.Collapsed;
+                w.nowTarget -= 1;
+                w.Target.Text = "目標 : " + w.nowTarget + "/" + w.maxTarget;
             }
             else
             {
                 CheckMark.Visibility = Visibility.Visible;
+                w.nowTarget += 1;
+                w.Target.Text = "目標 : " + w.nowTarget + "/" + w.maxTarget;
             }
+        }
+
+        private void Contents_Box_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if(Contents_Box.Text == "" && e.Key == Key.Back)
+            {
+                w.Destroy_item(this);
+            }
+
         }
     }
 }

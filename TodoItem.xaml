@@ -35,6 +35,6 @@
 		</Grid>
 
 		<!-- 輸入框 -->
-		<TextBox x:Name="ItemNameTb" Grid.Column="1" VerticalContentAlignment="Center" BorderThickness="0">New Task</TextBox>
+		<TextBox x:Name="Contents_Box" Grid.Column="1" VerticalContentAlignment="Center" BorderThickness="0" PreviewKeyDown="Contents_Box_PreviewKeyDown">New Task</TextBox>
 	</Grid>
 </UserControl>
